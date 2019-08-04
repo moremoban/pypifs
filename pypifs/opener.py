@@ -1,11 +1,10 @@
 import os
 import sys
 
-import pkg_resources as pkg
-
-from fs.opener import Opener
-from fs.osfs import OSFS
 import fs.path
+import pkg_resources as pkg
+from fs.osfs import OSFS
+from fs.opener import Opener
 
 
 class PypiFSOpener(Opener):
@@ -21,10 +20,10 @@ class PypiFSOpener(Opener):
 
 
 def get_module_name(package_name):
-    meta_data_dir = pkg.get_distribution('pypi-mobans-pkg').egg_info
+    meta_data_dir = pkg.get_distribution("pypi-mobans-pkg").egg_info
     with fs.open_fs(meta_data_dir) as data_dir:
         content = data_dir.read("top_level.txt")
-        name = content.split('\n', 1)[0]
+        name = content.split("\n", 1)[0]
 
     return name
 
