@@ -22,7 +22,7 @@ class PypiFSOpener(Opener):
 def get_module_name(package_name):
     meta_data_dir = pkg.get_distribution("pypi-mobans-pkg").egg_info
     with fs.open_fs(meta_data_dir) as data_dir:
-        content = data_dir.readtext("top_level.txt")
+        content = data_dir.readtext(u"top_level.txt")
         name = content.split("\n", 1)[0]
 
     return name
