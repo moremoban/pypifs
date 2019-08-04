@@ -8,5 +8,9 @@ current_version: "0.0.1"
 release: "0.0.0"
 copyright_year: 2019
 license: MIT
-dependencies: []
+entry_points:
+  fs.opener:
+    - "pypi = pypifs:PypiFSOpener"
+dependencies:
+  - fs >= 2.20
 description: "Read files from python packages"

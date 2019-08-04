@@ -1,8 +1,11 @@
 requires:
-  - pypi-mobans-pkg==0.0.5
+  - type: git
+    url: https://github.com/moremoban/pypi-mobans
+    branch: remove-empty-console-script
+    submodule: true
 configuration:
   template_dir:
-  - "pypi-mobans-pkg:templates"
+  - "pypi-mobans:templates"
   - ".moban.d"
   configuration: pypifs.yml
 targets:

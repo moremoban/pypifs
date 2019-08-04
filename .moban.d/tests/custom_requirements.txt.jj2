@@ -4,4 +4,5 @@
 moban
 black;python_version>="3.6"
 isort;python_version>="3.6"
+pypi-mobans-pkg
 {%endblock%}
