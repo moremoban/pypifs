@@ -1,6 +1,8 @@
 import os
 import sys
 
+import pkg_resources as pkg
+
 from fs.opener import Opener
 from fs.osfs import OSFS
 import fs.path
@@ -11,9 +13,23 @@ class PypiFSOpener(Opener):
 
     def open_fs(self, fs_url, parse_result, writeable, create, cwd):
         pypi_package_name, _, dir_path = parse_result.resource.partition("/")
-        __import__(pypi_package_name)
-        directory = os.path.dirname(sys.modules[pypi_package_name].__file__)
-        directory = os.path.normcase(directory)
-        root_path = fs.path.join(directory, dir_path)
+        module_name = get_module_name(pypi_package_name)
+        module_path = get_module_path(module_name)
+        root_path = fs.path.join(module_path, dir_path)
         osfs = OSFS(root_path=root_path)
         return osfs
+
+
+def get_module_name(package_name):
+    meta_data_dir = pkg.get_distribution('pypi-mobans-pkg').egg_info
+    with fs.open_fs(meta_data_dir) as data_dir:
+        content = data_dir.read("top_level.txt")
+        name = content.split('\n', 1)[0]
+
+    return name
+
+
+def get_module_path(module_name):
+    __import__(module_name)
+    directory = os.path.dirname(sys.modules[module_name].__file__)
+    return os.path.normcase(directory)

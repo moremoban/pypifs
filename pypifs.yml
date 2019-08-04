@@ -12,5 +12,6 @@ entry_points:
   fs.opener:
     - "pypi = pypifs:PypiFSOpener"
 dependencies:
+  - setuptools
   - fs >= 2.2.0
 description: "Read files from python packages"

@@ -7,6 +7,7 @@ name = 'pypi'
 python_version= '3.6'
 
 [packages]
+setuptools = "*"
 fs  = '>= 2.2.0'
 
 [dev-packages]
