@@ -65,7 +65,7 @@ CLASSIFIERS = [
 ]
 
 INSTALL_REQUIRES = [
-    "fs >= 2.20",
+    "fs >= 2.2.0",
 ]
 SETUP_COMMANDS = {}
 

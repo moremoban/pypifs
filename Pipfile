@@ -7,7 +7,7 @@ name = 'pypi'
 python_version= '3.6'
 
 [packages]
-fs  = '>= 2.20'
+fs  = '>= 2.2.0'
 
 [dev-packages]
 nose = "*"
