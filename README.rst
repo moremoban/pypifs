@@ -2,8 +2,8 @@
 pypifs
 ================================================================================
 
-.. image:: https://api.travis-ci.org/moremoban/pypifs.svg
-   :target: http://travis-ci.org/moremoban/pypifs
+.. image:: https://travis-ci.com/moremoban/pypifs.svg
+   :target: http://travis-ci.com/moremoban/pypifs
 
 .. image:: https://codecov.io/github/moremoban/pypifs/coverage.png
    :target: https://codecov.io/github/moremoban/pypifs
