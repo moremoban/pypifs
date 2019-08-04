@@ -6,6 +6,8 @@ import pkg_resources as pkg
 from fs.osfs import OSFS
 from fs.opener import Opener
 
+PY2 = sys.version_info[0] == 2
+
 
 class PypiFSOpener(Opener):
     protocols = ["pypi"]
@@ -22,7 +24,7 @@ class PypiFSOpener(Opener):
 def get_module_name(package_name):
     meta_data_dir = pkg.get_distribution("pypi-mobans-pkg").egg_info
     with fs.open_fs(meta_data_dir) as data_dir:
-        content = data_dir.readtext(u"top_level.txt")
+        content = data_dir.readtext(to_unicode("top_level.txt"))
         name = content.split("\n", 1)[0]
 
     return name
@@ -32,3 +34,10 @@ def get_module_path(module_name):
     __import__(module_name)
     directory = os.path.dirname(sys.modules[module_name].__file__)
     return os.path.normcase(directory)
+
+
+def to_unicode(path):
+    """Convert str in python 2 to unitcode"""
+    if PY2 and path.__class__.__name__ != "unicode":
+        return u"".__class__(path)
+    return path
