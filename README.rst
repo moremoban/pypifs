@@ -5,6 +5,9 @@ pypifs
 .. image:: https://travis-ci.com/moremoban/pypifs.svg
    :target: http://travis-ci.com/moremoban/pypifs
 
+.. image:: https://dev.azure.com/moremoban/pypifs/_apis/build/status/moremoban.pypifs
+   :target: https://dev.azure.com/moremoban/pypifs/_build?definitionId=1&_a=summary
+
 .. image:: https://codecov.io/github/moremoban/pypifs/coverage.png
    :target: https://codecov.io/github/moremoban/pypifs
 
