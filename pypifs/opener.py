@@ -11,14 +11,26 @@ PY2 = sys.version_info[0] == 2
 
 class PypiFSOpener(Opener):
     protocols = ["pypi"]
+    installed_packages = set()
 
     def open_fs(self, fs_url, parse_result, writeable, create, cwd):
         pypi_package_name, _, dir_path = parse_result.resource.partition("/")
+        if pypi_package_name not in PypiFSOpener.installed_packages:
+            pip_install([pypi_package_name])
+            PypiFSOpener.installed_packages.add(pypi_package_name)
         module_name = get_module_name(pypi_package_name)
         module_path = get_module_path(module_name)
         root_path = fs.path.join(module_path, dir_path)
         osfs = OSFS(root_path=root_path)
         return osfs
+
+
+def pip_install(packages):
+    import subprocess
+
+    subprocess.check_call(
+        [sys.executable, "-m", "pip", "install", " ".join(packages)]
+    )
 
 
 def get_module_name(package_name):
