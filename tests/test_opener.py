@@ -1,6 +1,7 @@
 import fs
-from nose.tools import assert_in, eq_
+
 from mock import patch
+from nose.tools import eq_, assert_in
 
 
 def test_open_fs():
@@ -14,3 +15,9 @@ def test_pip_install(fake_pip):
     fs.open_fs("pypi://abc/resources/templates")
     fs.open_fs("pypi://abc/resources/templates")
     eq_(fake_pip.call_count, 1)
+
+
+@patch("pypifs.opener.pip_install")
+def test_pip_install_the_right_package(fake_pip):
+    fs.open_fs("pypi://package_name/resources/templates")
+    fake_pip.assert_called_with(["package_name"])

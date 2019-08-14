@@ -2,9 +2,10 @@ import os
 import sys
 
 import fs.path
-import pkg_resources as pkg
 from fs.osfs import OSFS
 from fs.opener import Opener
+
+import pkg_resources as pkg
 
 PY2 = sys.version_info[0] == 2
 
