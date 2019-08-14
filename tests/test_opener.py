@@ -1,5 +1,4 @@
 import fs
-
 from mock import patch
 from nose.tools import eq_, assert_in
 
