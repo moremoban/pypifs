@@ -15,3 +15,4 @@ dependencies:
   - setuptools
   - fs >= 2.2.0
 description: "Read files from python packages"
+lint_command: make install_test lint format git-diff-check
