@@ -1,7 +1,7 @@
 requires:
   - type: git
     url: https://github.com/moremoban/pypi-mobans
-    branch: remove-empty-console-script
+    branch: dev
     submodule: true
 configuration:
   template_dir:
