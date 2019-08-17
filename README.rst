@@ -13,10 +13,15 @@ pypifs
    :target: https://dev.azure.com/moremoban/pypifs/_build/latest?definitionId=2&branchName=master
 
 
-It will install the python package if it is not present. Then it help perform file
-operations over the installed python package.
+It helps perform `file operations <https://docs.pyfilesystem.org/en/latest/guide.html>`_ over the python package.
+It installs the python package and returns python file system 2's `OSFS <https://docs.pyfilesystem.org/en/latest/reference/osfs.html>`_ instance. The idea originates from
+`moban <https://github.com/moremoban/moban>`_, which uses python package as
+a vehicle to have versioned templates for the creation of a new python package.
 
-Get a file inside a python package::
+Get a file inside a python package
+--------------------------------------------------------------------------------
+
+.. code-block:: python
 
     >>> import fs
     >>> pypi_fs = fs.open_fs("pypi://pypi-mobans-pkg/resources/templates")
@@ -24,7 +29,10 @@ Get a file inside a python package::
     '__version__ = "0.0.1"\n__author__ = "C.W."\n'
 
 
-List files of interest::
+List files of interest
+--------------------------------------------------------------------------------
+
+.. code-block:: python
 
     >>> pypi_fs = fs.open_fs("pypi://pypi-mobans-pkg/resources")
     >>> for path in pypi_fs.walk.files(filter=['*.jj2']):
@@ -53,6 +61,13 @@ List files of interest::
     /templates/docs/index.rst.jj2
     /templates/docs/source/conf.py.jj2
     /templates/docs/source/index.rst.jj2
+
+
+Does it write?
+--------------------------------------------------------------------------------
+
+Yes, it will write as you can do so without using pypifs. But, it is never the
+intention of pypifs.
 
 
 Installation
