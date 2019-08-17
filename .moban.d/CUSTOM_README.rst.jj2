@@ -1,1 +1,51 @@
 {% extends 'README.rst.jj2' %}
+
+{%block documentation_link%}
+.. image:: https://dev.azure.com/{{orgnisation}}/{{name}}/_apis/build/status/{{orgnisation}}.{{name}}?branchName=master
+   :target: https://dev.azure.com/{{organisation}}/{{name}}/_build/latest?definitionId=2&branchName=master
+{%endblock%}
+
+{% block features %}
+
+It will install the python package if it is not present. Then it help perform file
+operations over the installed python package.
+
+Get a file inside a python package::
+
+    >>> import fs
+    >>> pypi_fs = fs.open_fs("pypi://pypi-mobans-pkg/resources/templates")
+    >>> pypi_fs.read("_versions.py.jj2")
+    '__version__ = "{{version}}"\n__author__ = "{{author}}"\n'
+
+
+List files of interest::
+
+    >>> pypi_fs = fs.open_fs("pypi://pypi-mobans-pkg/resources")
+    >>> for path in pypi_fs.walk.files(filter=['*.jj2']):
+    ...     print(path)
+    ... 
+    /templates/requirements.txt.jj2
+    /templates/installation.rst.jj2
+    /templates/test.script.jj2
+    /templates/conf.py.jj2
+    /templates/_version.py.jj2
+    /templates/Pipfile.jj2
+    /templates/min_requirements.txt.jj2
+    /templates/README.rst.jj2
+    /templates/badges.rst.jj2
+    /templates/__init__.py.jj2
+    /templates/NEW_BSD_LICENSE.jj2
+    /templates/MANIFEST.in.jj2
+    /templates/CHANGELOG.rst.jj2
+    /templates/travis.yml.jj2
+    /templates/setup.py.jj2
+    /templates/gitignore.jj2
+    /templates/lint.script.jj2
+    /templates/tests/requirements.txt.jj2
+    /templates/docs/make.bat.jj2
+    /templates/docs/Makefile.jj2
+    /templates/docs/index.rst.jj2
+    /templates/docs/source/conf.py.jj2
+    /templates/docs/source/index.rst.jj2
+
+{% endblock %}

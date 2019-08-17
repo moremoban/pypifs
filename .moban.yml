@@ -21,3 +21,4 @@ targets:
     configuration: changelog.yml
     template: CHANGELOG.rst.jj2
   - lint.sh: lint.script.jj2
+  - README.rst: CUSTOM_README.rst.jj2
