@@ -75,7 +75,15 @@ intention of pypifs.
 Installation
 ================================================================================
 
-You can get it:
+
+You can install pypifs via pip:
+
+.. code-block:: bash
+
+    $ pip install pypifs
+
+
+or clone it and install it:
 
 .. code-block:: bash
 
