@@ -5,7 +5,7 @@ import fs.path
 from fs.osfs import OSFS
 from fs.opener import Opener
 
-import pkg_resources as pkg
+import importlib_metadata as im
 
 PY2 = sys.version_info[0] == 2
 
@@ -35,10 +35,8 @@ def pip_install(packages):
 
 
 def get_module_name(package_name):
-    meta_data_dir = pkg.get_distribution("pypi-mobans-pkg").egg_info
-    with fs.open_fs(meta_data_dir) as data_dir:
-        content = data_dir.readtext(to_unicode("top_level.txt"))
-        name = content.split("\n", 1)[0]
+    content = im.distribution(package_name).read_text("top_level.txt")
+    name = content.split("\n", 1)[0]
 
     return name
 

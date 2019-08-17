@@ -67,6 +67,7 @@ CLASSIFIERS = [
 INSTALL_REQUIRES = [
     "setuptools",
     "fs >= 2.2.0",
+    "importlib_metadata",
 ]
 SETUP_COMMANDS = {}
 
