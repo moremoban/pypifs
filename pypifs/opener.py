@@ -7,8 +7,6 @@ from fs.opener import Opener
 
 import importlib_metadata as im
 
-PY2 = sys.version_info[0] == 2
-
 
 class PypiFSOpener(Opener):
     protocols = ["pypi"]
@@ -45,10 +43,3 @@ def get_module_path(module_name):
     __import__(module_name)
     directory = os.path.dirname(sys.modules[module_name].__file__)
     return os.path.normcase(directory)
-
-
-def to_unicode(path):
-    """Convert str in python 2 to unitcode"""
-    if PY2 and path.__class__.__name__ != "unicode":
-        return u"".__class__(path)
-    return path
