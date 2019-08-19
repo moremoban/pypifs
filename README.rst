@@ -27,7 +27,7 @@ Get a file inside a python package
 
     >>> import fs
     >>> pypi_fs = fs.open_fs("pypi://pypi-mobans-pkg/resources/templates")
-    >>> pypi_fs.read("_versions.py.jj2")
+    >>> pypi_fs.readtext("_version.py.jj2")
     '__version__ = "0.0.1"\n__author__ = "C.W."\n'
 
 
