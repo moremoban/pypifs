@@ -29,7 +29,8 @@ def pip_install(packages):
 
     subprocess.check_call(
         [sys.executable, "-m", "pip", "install", " ".join(packages)],
-        stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
     )
 
 
