@@ -7,7 +7,14 @@ pypifs
 
 .. image:: https://codecov.io/github/moremoban/pypifs/coverage.png
    :target: https://codecov.io/github/moremoban/pypifs
+.. image:: https://badge.fury.io/py/pypifs.svg
+   :target: https://pypi.org/project/pypifs
 
+.. image:: https://pepy.tech/badge/pypifs/month
+   :target: https://pepy.tech/project/pypifs/month
+
+.. image:: https://img.shields.io/github/stars/moremoban/pypifs.svg?style=social&maxAge=3600&label=Star
+    :target: https://github.com/moremoban/pypifs/stargazers
 
 .. image:: https://dev.azure.com/moremoban/pypifs/_apis/build/status/moremoban.pypifs?branchName=master
    :target: https://dev.azure.com/moremoban/pypifs/_build/latest?definitionId=2&branchName=master
@@ -28,7 +35,7 @@ Get a file inside a python package
     >>> import fs
     >>> pypi_fs = fs.open_fs("pypi://pypi-mobans-pkg/resources/templates")
     >>> pypi_fs.readtext("_version.py.jj2")
-    '__version__ = "0.0.1"\n__author__ = "C.W."\n'
+    '__version__ = "0.0.2"\n__author__ = "C.W."\n'
 
 
 List files of interest

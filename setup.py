@@ -1,14 +1,17 @@
 #!/usr/bin/env python3
 
-# Template by pypi-mobans
+"""
+Template by pypi-mobans
+"""
+
+import os
+import sys
 import codecs
 import locale
-import os
 import platform
-import sys
 from shutil import rmtree
 
-from setuptools import Command, find_packages, setup
+from setuptools import Command, setup, find_packages
 
 PY2 = sys.version_info[0] == 2
 PY26 = PY2 and sys.version_info[1] < 7
@@ -29,7 +32,7 @@ except (ValueError, UnicodeError, locale.Error):
 
 NAME = "pypifs"
 AUTHOR = "C.W."
-VERSION = "0.0.1"
+VERSION = "0.0.2"
 EMAIL = "wangc_2011@hotmail.com"
 LICENSE = "MIT"
 ENTRY_POINTS = {
@@ -41,7 +44,7 @@ DESCRIPTION = (
     "Read files from python packages"
 )
 URL = "https://github.com/moremoban/pypifs"
-DOWNLOAD_URL = "%s/archive/0.0.1.tar.gz" % URL
+DOWNLOAD_URL = "%s/archive/0.0.2.tar.gz" % URL
 FILES = ["README.rst", "CHANGELOG.rst"]
 KEYWORDS = [
     "python",
@@ -57,12 +60,11 @@ CLASSIFIERS = [
     "Programming Language :: Python :: 3.4",
     "Programming Language :: Python :: 3.5",
     "Programming Language :: Python :: 3.6",
-
     "Programming Language :: Python :: 3.7",
-
     "Programming Language :: Python :: 3.8",
 
 ]
+
 
 INSTALL_REQUIRES = [
     "setuptools",
@@ -71,14 +73,13 @@ INSTALL_REQUIRES = [
 ]
 SETUP_COMMANDS = {}
 
-
-PACKAGES = find_packages(exclude=["ez_setup", "examples", "tests"])
+PACKAGES = find_packages(exclude=["ez_setup", "examples", "tests", "tests.*"])
 EXTRAS_REQUIRE = {
 }
 # You do not need to read beyond this line
 PUBLISH_COMMAND = "{0} setup.py sdist bdist_wheel upload -r pypi".format(sys.executable)
-GS_COMMAND = ("gs pypifs v0.0.1 " +
-              "Find 0.0.1 in changelog for more details")
+GS_COMMAND = ("gs pypifs v0.0.2 " +
+              "Find 0.0.2 in changelog for more details")
 NO_GS_MESSAGE = ("Automatic github release is disabled. " +
                  "Please install gease to enable it.")
 UPLOAD_FAILED_MSG = (
@@ -120,7 +121,7 @@ class PublishCommand(Command):
             self.status(NO_GS_MESSAGE)
         if run_status:
             if os.system(PUBLISH_COMMAND) != 0:
-                self.status(UPLOAD_FAILED_MSG % PUBLISH_COMMAND)
+                self.status(UPLOAD_FAILED_MSG)
 
         sys.exit()
 

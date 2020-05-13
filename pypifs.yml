@@ -3,10 +3,10 @@ organisation: "moremoban"
 author: "C.W."
 contact: "wangc_2011@hotmail.com"
 company: "moban dev team"
-version: "0.0.1"
-current_version: "0.0.1"
-release: "0.0.1"
-copyright_year: 2019
+version: "0.0.2"
+current_version: "0.0.2"
+release: "0.0.2"
+copyright_year: 2019-2020
 license: MIT
 entry_points:
   fs.opener:

@@ -2,6 +2,13 @@ name: pypifs
 organisation: moremoban
 releases:
 - changes:
+  - action: updated
+    details:
+    - "`#8`: suppress pip install std output"
+    - "`#6`: added license text in the package"
+  version: 0.0.2
+  date: 13.5.2020
+- changes:
   - action: first release
     details:
     - what a feat!
