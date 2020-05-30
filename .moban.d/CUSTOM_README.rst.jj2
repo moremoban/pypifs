@@ -65,4 +65,11 @@ Does it write?
 Yes, it will write as you can do so without using pypifs. But, it is never the
 intention of pypifs.
 
+
+Primary use case
+--------------------------------------------------------------------------------
+
+{% include "pypi_example.rst.jj2" %}
+
+
 {% endblock %}

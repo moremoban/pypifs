@@ -1,0 +1,16 @@
+You can do the following with moban:
+
+.. code-block:: bash
+
+    $ moban -t 'pypi://pypi-mobans-pkg/resources/templates/_version.py.jj2' \
+            -c 'pypi://pypi-mobans-pkg/resources/config/data.yml' \
+            -o _version.py
+    Collecting pypi-mobans-pkg
+    ....
+    Installing collected packages: pypi-mobans-pkg
+    Successfully installed pypi-mobans-pkg-0.0.7
+    Templating pypi://pypi-mobans-pkg/resources/templates/_version.py.jj2 to _version.py
+    Templated 1 file.
+    $ cat _version.py
+    __version__ = "0.1.1rc3"
+    __author__ = "C.W."
